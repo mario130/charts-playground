@@ -17,14 +17,13 @@ const data = [
 
 export default function ObservationsChart() {
   return (
-    <div>
-      <h4>Observations by Type</h4>
-      <ResponsiveContainer width="40%" height={400}>
+    <div style={{ height: '400px', width: '100%' }}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
           margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
         >
-                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e0e0e0" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e0e0e0" />
           <XAxis
             dataKey="type"
             axisLine={{ stroke: '#e0e0e0' }}
@@ -35,7 +34,7 @@ export default function ObservationsChart() {
             axisLine={{ stroke: '#e0e0e0' }}
             tickLine={false}
             tickCount={5}
-            label={{ value: 'No. of Observations', angle: -90, position: 'insideLeft' }}
+            label={{ value: 'No. of Observations', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } }}
           />
           <Tooltip />
           <Legend align='left' verticalAlign='top' wrapperStyle={{ paddingBottom: 20 }} />

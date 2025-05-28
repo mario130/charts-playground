@@ -5,21 +5,21 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 // Standard chart configurations
 const CHART_CONFIGS = {
   bar: {
-    margin: { top: 20, bottom: 50 },
+    margin: { top: 10, bottom: 20 },
     barCategoryGap: '30%',
   }
 };
 
 // Standard styling configurations
 const GRID_STYLES = {
-  strokeDasharray: "2 2",
+  strokeDasharray: "8 8",
   vertical: false,
   stroke: "#ddd",
   strokeWidth: 2,
 };
 
 const X_AXIS_STYLES = {
-  axisLine: false,
+  axisLine: true,
   tickLine: false,
   tick: { fontSize: 12, fill: '#666' },
   interval: 0,
@@ -28,18 +28,8 @@ const X_AXIS_STYLES = {
 const Y_AXIS_STYLES = {
   axisLine: false,
   tickLine: false,
-  tick: { fontSize: 12, fill: '#666' },
+  tick: { fontSize: 14, fill: '#666' },
   tickCount: 5,
-};
-
-const TOOLTIP_STYLES = {
-  active: false,
-  contentStyle: {
-    backgroundColor: '#fff',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-    fontSize: '12px'
-  }
 };
 
 // Default color palette - colors will be assigned in order
@@ -183,7 +173,7 @@ export const StyledBarChart = ({
               style: { textAnchor: 'middle', fontSize: '12px', fill: '#666' }
             } : undefined}
           />
-          <Tooltip {...TOOLTIP_STYLES} />
+          {/* <Tooltip {...TOOLTIP_STYLES} /> */}
           {showLegend && (
             <Legend
               content={renderLegend}
@@ -199,6 +189,8 @@ export const StyledBarChart = ({
               stackId={stackedBars.length > 1 ? "a" : undefined}
               name={barKey.charAt(0).toUpperCase() + barKey.slice(1)}
               fill={getColor(index)}
+              stroke="#ffffff"
+              strokeWidth={stackedBars.length > 1 ? 1 : 0}
               radius={index === stackedBars.length - 1 ? [5, 5, 0, 0] : barRadius}
             />
           ))}
